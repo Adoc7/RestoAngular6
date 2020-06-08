@@ -1,0 +1,7 @@
+<jg-phone [user]="standard" (zoom)="displayBig($event)"></jg-phone>
+<hr>
+<jg-phone [user]="sommelier" (zoom)="displayBig($event)"></jg-phone>
+<hr>
+<jg-phone [user]="boucher" (zoom)="displayBig($event)"></jg-phone>
+
+<div class="phone" *ngIf="numberToDisplay">{{ numberToDisplay }}</div>

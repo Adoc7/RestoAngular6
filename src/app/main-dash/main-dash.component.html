@@ -1,0 +1,77 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Nos plats</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content id="pizza" class="dashboard-card-content" *ngIf="card.id==='pzz'">
+          <div>Carte des Pizzas</div>
+          <p *ngFor="let pizza of pizzas">
+            <strong>
+              <span>{{ pizza.title }}</span> :
+            </strong>
+            <br>
+
+            <span>{{ pizza.description }}</span>
+            <strong>
+              <span class="price">{{ pizza.price | currency:'EUR':'symbol':'1.2-2'}}</span>
+            </strong>
+            <mat-divider></mat-divider>
+          </p>
+        </mat-card-content>
+
+
+
+
+        <mat-card-content class="dashboard-card-content" *ngIf="card.id==='brg'" id="burger">
+          <div>Carte des Burgers</div>
+          <p *ngFor="let burger of burgers">
+            <strong>
+              <span>{{ burger.title }}</span> :
+            </strong>
+            <br>
+
+            <span>{{ burger.description }}</span>
+            <strong>
+              <span class="price">{{ burger.price | currency:'EUR':'symbol':'1.2-2' }}</span>
+            </strong>
+            <mat-divider></mat-divider>
+          </p>
+        </mat-card-content>
+
+        <mat-card-content class="dashboard-card-content" *ngIf="card.id==='glt'">
+          <div>Carte des Galettes</div>
+          <p *ngFor="let galette of galettes">
+            <strong>
+              <span>{{ galette.title }}</span> :
+            </strong>
+            <br>
+
+            <span>{{ galette.description }}</span>
+            <strong>
+              <span class="price">{{ galette.price | currency:'EUR':'symbol':'1.2-2' }}</span>
+            </strong>
+            <mat-divider></mat-divider>
+          </p>
+        </mat-card-content>
+
+
+
+
+      </mat-card>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

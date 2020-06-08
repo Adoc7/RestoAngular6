@@ -1,0 +1,15 @@
+<h3>{{user.role}}</h3>
+<div>
+  {{user.firstName}} {{user.lastName}}
+</div>
+<div *ngIf="user.award !==''">
+  Récompense : {{user.award}}
+</div>
+<div>
+  <mat-chip-list>
+    Tél. {{user.phoneNumber}}
+    <mat-chip color="primary" selected (click)="displayNumber()">
+      <mat-icon>zoom_in</mat-icon>&nbsp;Zoom
+    </mat-chip>
+  </mat-chip-list>
+</div>
